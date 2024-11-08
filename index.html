@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Michigan Football Activity</title>
+    <!--DO NOT CHANGE CODE-->
+    <!---------------------->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: start;
+            background-color: grey;
+        }
+        #content {
+            padding: 20px;
+            border: 2px solid #ffcb05;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #ffcb05;
+            color: #003366;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #d88a48;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #003366;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Go Blue!</h1>
+        <button id="changeTitleButton" type="button" onclick="changeTitle()">Change Title</button>
+        <div id="message"></div>
+        <button id="addMessageButton">Add Game Day Message</button>
+
+        <h2>Stars of the 2023 Season:</h2>
+        <ul id="playerList">
+            <li>J J McCarthy</li>
+            <li>Blake Corum</li>
+            <li>Will Johnson</li>
+            <li>Zak Zinter</li>
+            <li>Donovan Edwards</li>
+        </ul>
+        <p>
+            <b>URL of this page :</b> <span id = "URL"></span><br/>
+            <b>Number of list items on this page :</b> <span id = "items"></span><br/>
+            <b>Current date/time :</b> <span id = "time"></span><br/>
+        </p>
+        <button type="button" onClick="displayInformation()">Display Information</button>
+    </div>
+    <!---------------->
+
+    <script>
+
+        //YOUR CODE GOES HERE
+        // Only use JavaScript to complete the following steps
+
+        // Step 1: Create Function to Change Title and rewrite h1 element to "Celebrate Michigan Football!"
+        //function
+        function changeTitle() {
+            document.querySelector("h1").textContent = "Celebrate Michigan Football!";
+
+        //Step 2: log the message to the console
+            console.log("Title Changed!");
+
+
+
+        //Step 3: style the background to color #003366
+            document.body.style.backgroundColor = "#003366";
+        }
+
+        // Step 4: Add the correct ID for the button, create an element 'p' and add a message "2023 Champions!" to p
+        document.getElementById("addMessageButton").addEventListener("click", function() {
+            const gameDayMessage = document.createElement("p");
+            gameDayMessage.textContent = "2023 Champions!";
+
+            document.getElementById("message").appendChild(gameDayMessage);// Add to the message div
+        });
+
+        const playerItems = document.querySelectorAll("li");
+        // Step 5: Use a conditional statement for playerItems. If there are more than 5 players, log a special message to the console "Go Blue, so many great players in one season!
+
+        //Try it out with length > 4
+        if (playerItems.length > 4) {
+            console.log("Go Blue, so many great players in one season!");
+        }
+
+        function displayInformation() {
+            // Step 6: Update the three span elements using ONLY JavaScript
+            document.getElementById("URL").textContent = window.location.href;
+            document.getElementById("items").textContent = playerItems.length;
+            document.getElementById("time").textContent = new Date();
+        }
+    </script>
+</body>
+</html>
